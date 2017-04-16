@@ -12,7 +12,7 @@ export class NavMenu extends React.Component<void, void> {
                         <span className='icon-bar'></span>
                         <span className='icon-bar'></span>
                     </button>
-                    <Link className='navbar-brand' to={ '/' }>exp_bond_explorer_3</Link>
+                    <Link className='navbar-brand' to={ '/' }>exp_bond_explorer_4</Link>
                 </div>
                 <div className='clearfix'></div>
                 <div className='navbar-collapse collapse'>
