@@ -1,5 +1,4 @@
 import './css/site.css';
-import '../semantic/dist/semantic.min.css'
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { browserHistory, Router } from 'react-router';

@@ -17,8 +17,8 @@ module.exports = (env) => {
         },
         entry: {
             vendor: [
-                'bootstrap',
-                'bootstrap/dist/css/bootstrap.css',
+                'semantic-ui-react',
+                'semantic-ui-css/semantic.min.css'                
                 'domain-task',
                 'event-source-polyfill',
                 'react',
