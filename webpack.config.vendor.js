@@ -16,13 +16,13 @@ module.exports = (env) => {
             ]
         },
         entry: {
-            vendor: [
-                'semantic-ui-react',
-                'semantic-ui-css/semantic.min.css'                
+            vendor: [                
                 'domain-task',
                 'event-source-polyfill',
                 'react',
                 'react-dom',
+                'semantic-ui-react',
+                'semantic-ui-css/semantic.min.css',
                 'react-router',
                 'react-redux',
                 'redux',
