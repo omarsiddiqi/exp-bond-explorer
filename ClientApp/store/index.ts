@@ -1,9 +1,11 @@
 import * as WeatherForecasts from './WeatherForecasts';
+import * as MarketOverview from './MarketOverview'
 import * as Counter from './Counter';
 
 // The top-level state object
 export interface ApplicationState {
     counter: Counter.CounterState,
+    marketOverview: MarketOverview.MarketOverviewState,
     weatherForecasts: WeatherForecasts.WeatherForecastsState
 }
 
@@ -12,6 +14,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     counter: Counter.reducer,
+    marketOverview: MarketOverview.reducer,
     weatherForecasts: WeatherForecasts.reducer
 };
 

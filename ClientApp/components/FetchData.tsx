@@ -1,26 +1,23 @@
 import * as React from 'react';
-import { Link } from 'react-router';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ApplicationState }  from '../store';
 import * as WeatherForecastsState from '../store/WeatherForecasts';
 
 // At runtime, Redux will merge together...
 type WeatherForecastProps =
-    WeatherForecastsState.WeatherForecastsState     // ... state we've requested from the Redux store
-    & typeof WeatherForecastsState.actionCreators   // ... plus action creators we've requested
-    & { params: { startDateIndex: string } };       // ... plus incoming routing parameters
+    WeatherForecastsState.WeatherForecastsState // ... state we've requested from the Redux store
+    & typeof WeatherForecastsState.actionCreators;      // ... plus action creators we've requested    
 
-class FetchData extends React.Component<WeatherForecastProps, void> {
+class FetchData extends React.Component<WeatherForecastProps, {}> {
     componentWillMount() {
-        // This method runs when the component is first added to the page
-        let startDateIndex = parseInt(this.props.params.startDateIndex) || 0;
-        this.props.requestWeatherForecasts(startDateIndex);
+        // This method runs when the component is first added to the page        
+        this.props.requestWeatherForecasts(0);
     }
 
     componentWillReceiveProps(nextProps: WeatherForecastProps) {
         // This method runs when incoming props (e.g., route params) change
-        let startDateIndex = parseInt(nextProps.params.startDateIndex) || 0;
-        this.props.requestWeatherForecasts(startDateIndex);
+        this.props.requestWeatherForecasts(0);
     }
 
     public render() {
