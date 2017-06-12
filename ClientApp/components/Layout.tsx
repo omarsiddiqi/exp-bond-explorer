@@ -7,9 +7,9 @@ import FetchDataContainer from './FetchData'
 export class Layout extends React.Component<{}, {}> {
     public render() {
         return <Container fluid>
-                   <NavMenu/>
-                   <MarketOverviewContainer />
-                   <FetchDataContainer />
-               </Container>;;
+            <NavMenu />
+            <Divider hidden />
+            <MarketOverviewContainer />
+        </Container>;
     }
 }

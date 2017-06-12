@@ -33,15 +33,15 @@ class MarketOverview extends React.Component<MarketOverviewProps, {}> {
                                <Statistic.Label color='blue'>Issued</Statistic.Label>
                            </Statistic>
                            <Statistic>
-                               <Statistic.Value>73</Statistic.Value>
+                               <Statistic.Value>{this.props.marketOverview.totalBondsAvailable}</Statistic.Value>
                                <Statistic.Label>Available</Statistic.Label>
                            </Statistic>
                            <Statistic>
-                               <Statistic.Value>900K</Statistic.Value>
+                               <Statistic.Value>{this.props.marketOverview.contractBalance}</Statistic.Value>
                                <Statistic.Label>Taken of market</Statistic.Label>
                            </Statistic>
                            <Statistic>
-                               <Statistic.Value>120</Statistic.Value>
+                               <Statistic.Value>{this.props.marketOverview.totalDistinctUsers}</Statistic.Value>
                                <Statistic.Label>Different users</Statistic.Label>
                            </Statistic>
                        </Statistic.Group>

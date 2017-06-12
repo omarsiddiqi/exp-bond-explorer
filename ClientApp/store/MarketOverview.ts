@@ -13,6 +13,10 @@ export interface MarketOverviewState {
 
 export interface MarketOverview {
     totalBondsIssued: number;
+    totalBondsAvailable: number;
+    totalBondsBought: number;
+    totalDistinctUsers: number;
+    contractBalance: number;
 }
 
 // -----------------
@@ -54,14 +58,18 @@ export const actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-const unloadedState: MarketOverviewState = { input: null, marketOverview: {totalBondsIssued:0}, isLoading: false };
+const unloadedState: MarketOverviewState = {
+    input: null,
+    marketOverview: { totalBondsIssued: 0, totalBondsAvailable: 0, totalBondsBought: 0, totalDistinctUsers: 0, contractBalance: 0},
+    isLoading: false
+};
 
 export const reducer: Reducer<MarketOverviewState> = (state: MarketOverviewState, action: KnownAction) => {
     switch (action.type) {
         case 'REQUEST_MARKET_OVERVIEW':
             return {
                 input: action.input,
-                marketOverview: {totalBondsIssued:0},
+                marketOverview: state.marketOverview,
                 isLoading: true
             };
         case 'RECEIVE_MARKET_OVERVIEW':
