@@ -13,9 +13,12 @@ namespace exp_bond_explorer.Controllers
         [HttpGet("[action]")]
         public MarketOverview TotalBonds(int input)
         {
+            // At this point i'm not sure if activeBonds are the total issued so far or is it limit bonds. 
+            // limitBonds - totalBonds seems to give the correct number for available bonds. 
             var marketOverview = new MarketOverview()
             {
-                TotalBondsIssued = GetBondInfo("limitBonds").Result,
+                TotalBondsIssued = GetBondInfo("activeBonds").Result,
+                MaxBonds = GetBondInfo("limitBonds").Result,
                 TotalDistinctUsers = GetBondInfo("nBonds").Result,
                 TotalBondsBought = GetBondInfo("totalBonds").Result,
                 ContractBalance = GetContractBalance().Result
@@ -49,12 +52,13 @@ namespace exp_bond_explorer.Controllers
         {
             public long TotalBondsIssued { get; set; }
 
-            public long TotalBondsAvailable => TotalBondsIssued - TotalBondsBought;
+            public long TotalBondsAvailable => MaxBonds - TotalBondsBought;
 
             public long TotalDistinctUsers { get; set; }
 
             public long TotalBondsBought { get; set; }
             public decimal ContractBalance { get; set; }
+            public long MaxBonds { get; set; }
         }
     }
 }
